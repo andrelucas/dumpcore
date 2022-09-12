@@ -6,7 +6,7 @@ COPY *.c Makefile /src
 WORKDIR /src
 RUN make clean all
 
-FROM docker.io/alpine:latest
+FROM scratch
 COPY --from=build /dumpcore /dumpcore
 ENTRYPOINT ["/dumpcore"]
 
